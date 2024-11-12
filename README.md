@@ -136,6 +136,7 @@ now run your compose file locally to test it:
 ```docker-compose -f <your-compose-file-name>.yml up```
 - ## Step 4: Create Azure web app at azure portal
 - folow the steps spicified on images to crete new web app
-- 
+- ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/1.png?raw=true)
+
 
 
