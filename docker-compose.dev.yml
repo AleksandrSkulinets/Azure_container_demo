@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"  # Exposing React app on port 3000
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app/client  # Map only the client directory
+      # Node modules are handled inside the container to avoid conflicts
+    environment:
+      - NODE_ENV=development  # Helps with file watching in Docker
+    command: ["npm", "start"]
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"  # Exposing Express app on port 5000
+    volumes:
+      - ./server:/app/server  # Map the local server directory to the container
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=mealapp
+    depends_on:
+      - mysql
+    command: ["npm", "run", "dev"]
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mealapp 
+    ports:
+      - "3306:3306"  # Exposing MySQL on port 3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"  # Exposing phpMyAdmin on port 8080
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: password
+
+volumes:
+  mysql-data:
