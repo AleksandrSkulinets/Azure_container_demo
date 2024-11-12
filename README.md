@@ -137,6 +137,11 @@ now run your compose file locally to test it:
 - ## Step 4: Create Azure web app at azure portal
 - folow the steps spicified on images to crete new web app
 - ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/1.png?raw=true)
-
+- ![Image 2](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/2.png?raw=true)
+- ![Image 3](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/3.png?raw=true)
+- ![Image 4](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/4.png?raw=true)
+- ![Image 5](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/5.png?raw=true)
+- ![Image 6](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/6.png?raw=true)
+- ![Image 7](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/7.png?raw=true)
 
 
