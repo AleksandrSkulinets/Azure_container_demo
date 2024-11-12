@@ -152,8 +152,11 @@ now run your compose file locally to test it:
 - ```https://<your-web-app-name>.azurewebsites.net```
 - Where <your-web-app-name> is the name you assigned to your Azure Web App. 
 - or you can find URL from your web app overveiw
+- 
 ![Image 10](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/10.png?raw=true)
+
 You should now be able to see your multi-container application live on Azure!
+
 ![Image 10](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/9.png?raw=true)
 
 
