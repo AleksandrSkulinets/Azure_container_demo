@@ -83,7 +83,8 @@ My nginx.conf file
     error_log /var/log/nginx/error.log;
 }
 ```
-Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any attempt to use other ports (like port 8080, 5000, or others) will not be allowed. This is for security, stability, and maintenance reasons.
+Important Note:
+Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any attempt to use other ports (like port 8080, 5000, or others) will not be allowed for security, stability, and maintenance reasons.
 - ## Step 2: Compose your docker images and push them to the DockerHub
 - run ```docker-compose up --build```
 - to see all your build images run ```docker images```
@@ -143,5 +144,17 @@ now run your compose file locally to test it:
 - ![Image 5](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/5.png?raw=true)
 - ![Image 6](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/6.png?raw=true)
 - ![Image 7](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/7.png?raw=true)
+- Note: You have to wait for some time while the deployment is going on. Azure Web Apps may take a few minutes to deploy and become accessible.
+- you can see deployment log example here 
+![Image 8](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/8.png?raw=true)
+- ## Step 5: Access Your Deployed App
+- Once the deployment process is complete (which may take a few minutes), your app will be available on the Azure Web App URL that you provided during the setup process. To access your app, simply navigate to the following URL:
+- ```https://<your-web-app-name>.azurewebsites.net```
+- Where <your-web-app-name> is the name you assigned to your Azure Web App. 
+- or you can find URL from your web app overveiw
+![Image 10](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/10.png?raw=true)
+You should now be able to see your multi-container application live on Azure!
+![Image 10](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/9.png?raw=true)
+
 
 
