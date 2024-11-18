@@ -113,7 +113,8 @@ Docker Hub is a cloud-based repository where developers can store, share, and ma
 <br>now push your images to DockerHub
 <br>Note:You can find your DockerHub login in your Docker Desktop app as shown on image below:<br>
 ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/12.png?raw=true)<br>
-<br>```docker push <dockerhub_login>/<target_image>:tag```
+<br> Now push your docker images to DockerHub with following command:
+    <br>```docker push <dockerhub_login>/<target_image>:tag```
 <br>Push both client and server images to DockerHub.
 
 - ## Step 3: Create compose file for azure and test it in your local docker if needed
