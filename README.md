@@ -56,7 +56,7 @@ client: This service builds the client container from the ./client directory usi
 server: The server is built from the ./server directory and listens on port 5000. It uses environment variables for MySQL connection details.
 mysql: The MySQL container uses the mysql:8.0 image and initializes with a root password and database name.
 
-My nginx.conf file
+Both client and server should be exposed throug Nginx, you can use this nginx.conf file
 ```server {
     listen 80;
 
@@ -83,22 +83,24 @@ My nginx.conf file
     error_log /var/log/nginx/error.log;
 }
 ```
-Important Note:
+Note:
 Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any attempt to use other ports (like port 8080, 5000, or others) will not be allowed for security, stability, and maintenance reasons.
+
 - ## Step 2: Compose your docker images and push them to the DockerHub
-- run
-- ```docker-compose -f <your-compose-file-name>.yml up```
--  in my case I use
--  ```docker-compose -f docker-compose.yml up```
-- to see all your build images run ```docker images```
-- tag image of your service (in my case it will be client and server)
+ run
+ ```docker-compose -f <your-compose-file-name>.yml up```
+  in my case I use
+ ```docker-compose -f docker-compose.yml up```
+ to see all your build images run ```docker images```
+ tag image of your service (in my case it will be client and server)
 ```docker tag <source_image> <dockerhub_login>/<target_image>:tag```
 in my case it should look like 
 ```docker tag coocking-db-server aleksandr3/coocking-db-server:latest```
-now push your ```docker push <dockerhub_login>/<target_image>:tag```
-push both client and server to dockerhub.
+now push your images to DockerHub
+```docker push <dockerhub_login>/<target_image>:tag```
+push both client and server images.
 - ## Step 3: Create compose file for azure and test it in your local docker if needed
-- my compose file now looks like this
+ Create your new compose file, it should look like this:
 ```yaml
  version: '3.8'
 
@@ -135,27 +137,28 @@ volumes:
   mysql-data:
 ```
 
-where aleksandr3 is my dockerhub login and coocking-db-client is my image that I've pushed in step 2
-now run your compose file locally to test it:
+where "aleksandr3" is DockerHub login and "coocking-db-client" is image name that been pushed in step 2.
+Now run your compose file locally to test it:
 ```docker-compose -f <your-compose-file-name>.yml up```
+
 - ## Step 4: Create Azure web app at azure portal
-- folow the steps spicified on images to crete new web app
-- ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/1.png?raw=true)
-- ![Image 2](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/2.png?raw=true)
-- ![Image 3](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/3.png?raw=true)
-- ![Image 4](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/4.png?raw=true)
-- ![Image 5](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/5.png?raw=true)
-- ![Image 6](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/6.png?raw=true)
-- ![Image 7](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/7.png?raw=true)
+  Folow the steps spicified on images to crete new web app at Azure Portal
+ ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/1.png?raw=true)
+ ![Image 2](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/2.png?raw=true)
+ ![Image 3](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/3.png?raw=true)
+ ![Image 4](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/4.png?raw=true)
+ ![Image 5](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/5.png?raw=true)
+ ![Image 6](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/6.png?raw=true)
+ ![Image 7](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/7.png?raw=true)
 - Note: You have to wait for some time while the deployment is going on. Azure Web Apps may take a few minutes to deploy and become accessible.
-- you can see deployment log example here 
+ you can see deployment log example here 
 ![Image 8](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/8.png?raw=true)
 - ## Step 5: Access Your Deployed App
-- Once the deployment process is complete (which may take a few minutes), your app will be available on the Azure Web App URL that you provided during the setup process. To access your app, simply navigate to the following URL:
-- ```https://<your-web-app-name>.azurewebsites.net```
-- Where <your-web-app-name> is the name you assigned to your Azure Web App. 
-- or you can find URL from your web app overveiw
-- 
+ Once the deployment process is complete (which may take a few minutes), your app will be available on the Azure Web App URL that you provided during the setup process. To access your app, simply navigate to the following URL:
+ ```https://<your-web-app-name>.azurewebsites.net```
+ Where <your-web-app-name> is the name you assigned to your Azure Web App. 
+ Or you can find URL from your web app overveiw
+ 
 ![Image 10](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/10.png?raw=true)
 
 You should now be able to see your multi-container application live on Azure!
