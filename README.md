@@ -3,7 +3,6 @@ This is an example how to run multi container app in azure web apps
 
 Prerequisites
 Installed Software:
-
 Docker: Ensure Docker is installed and running on your local machine.<br>
 Docker Compose: Needed to manage the multi-container configuration.<br>
 Application Setup:<br>
