@@ -163,7 +163,7 @@ Now run your compose file locally to test it:<br>
 ![Image 8](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/8.png?raw=true)
 - ## Step 5: Access Your Deployed App
  Once the deployment process is complete (which may take a few minutes), your app will be available on the Azure Web App URL that you provided during the setup process. To access your app, simply navigate to the following URL:<br>
- ```https://<your-web-app-name>.azurewebsites.net```
+ ```https://<your-web-app-name>.azurewebsites.net```<br>
  Where <your-web-app-name> is the name you assigned to your Azure Web App. 
  Or you can find URL from your web app overveiw
  
