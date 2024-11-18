@@ -146,7 +146,7 @@ volumes:
 ```
 
 where "aleksandr3" is DockerHub login and "coocking-db-client" is image name that been pushed in step 2.
-Now run your compose file locally to test it:
+Now run your compose file locally to test it:<br>
 ```docker-compose -f <your-compose-file-name>.yml up```
 
 - ## Step 4: Create Azure web app at azure portal
