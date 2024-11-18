@@ -51,12 +51,16 @@ services:
 volumes:
   mysql-data:
 ```
-Explanation of Docker Compose File
+Explanation of Docker Compose File:
+
 client: This service builds the client container from the ./client directory using the Dockerfile.prod. It exposes port 80 and depends on the server container.
+
 server: The server is built from the ./server directory and listens on port 5000. It uses environment variables for MySQL connection details.
+
 mysql: The MySQL container uses the mysql:8.0 image and initializes with a root password and database name.
 
 Both client and server should be exposed throug Nginx, you can use this nginx.conf file
+
 ```server {
     listen 80;
 
@@ -98,9 +102,12 @@ in my case it should look like
 ```docker tag coocking-db-server aleksandr3/coocking-db-server:latest```
 now push your images to DockerHub
 ```docker push <dockerhub_login>/<target_image>:tag```
-push both client and server images.
+Push both client and server images to DockerHub.
+
 - ## Step 3: Create compose file for azure and test it in your local docker if needed
+  
  Create your new compose file, it should look like this:
+ 
 ```yaml
  version: '3.8'
 
