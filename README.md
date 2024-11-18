@@ -111,8 +111,8 @@ Docker Hub is a cloud-based repository where developers can store, share, and ma
 <br>in my case it should look like 
 <br>```docker tag coocking-db-server aleksandr3/coocking-db-server:latest```
 <br>now push your images to DockerHub
-<br>You can find your DockerHub login in your Docker Desktop app as shown on image below:
-![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/12.png?raw=true)
+<br>Note:You can find your DockerHub login in your Docker Desktop app as shown on image below:<br>
+![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/12.png?raw=true)<br>
 <br>```docker push <dockerhub_login>/<target_image>:tag```
 <br>Push both client and server images to DockerHub.
 
