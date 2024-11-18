@@ -93,12 +93,11 @@ Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any
 - ## Step 2: Compose your docker images and push them to the DockerHub
  run <br>
  ```docker-compose -f <your-compose-file-name>.yml up```
- in my case I use
- <br>```docker-compose -f docker-compose.yml up```
+ in my case I use<br>
+ ```docker-compose -f docker-compose.yml up```
  to see all your build images run 
  <br>```docker images```
  tag image of your service (in my case it will be client and server)
- 
 <br>```docker tag <source_image> <dockerhub_login>/<target_image>:tag```
 <br>in my case it should look like 
 <br>```docker tag coocking-db-server aleksandr3/coocking-db-server:latest```
