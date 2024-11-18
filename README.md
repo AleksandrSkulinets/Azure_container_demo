@@ -104,7 +104,9 @@ Docker Hub is a cloud-based repository where developers can store, share, and ma
  ```docker-compose -f docker-compose.yml up```<br>
  to see all your build images run 
  ```docker images```<br>
- tag image of your service (in my case it will be client and server)
+  you can see example below <br>
+   ![Create new web app](https://github.com/AleksandrSkulinets/Azure_container_demo/blob/main/images/11.png?raw=true)
+   Tag image of your service (in my case it will be client and server)
 <br>```docker tag <source_image> <dockerhub_login>/<target_image>:tag```
 <br>in my case it should look like 
 <br>```docker tag coocking-db-server aleksandr3/coocking-db-server:latest```
