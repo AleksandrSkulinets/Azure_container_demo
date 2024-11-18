@@ -1,10 +1,15 @@
 # Azure_container_demo
 This is an example how to run multi container app in azure web apps
 
-Before you begin, ensure that you have the following installed on your local machine:
+Prerequisites
+Installed Software:
 
-- Docker
-- Docker Compose
+Docker: Ensure Docker is installed and running on your local machine.
+Docker Compose: Needed to manage the multi-container configuration.
+Application Setup:
+
+Have your application prepared with a docker-compose.yml file.
+Alternatively, you can clone a demo application from a GitHub repository. 
 
 - ## Step 1: Set Up Your Docker Compose File
 
@@ -91,6 +96,10 @@ Note:
 Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any attempt to use other ports (like port 8080, 5000, or others) will not be allowed for security, stability, and maintenance reasons.
 
 - ## Step 2: Compose your docker images and push them to the DockerHub
+- What is Docker Hub?
+Docker Hub is a cloud-based repository where developers can store, share, and manage Docker container images. It is the default registry used by Docker, making it a central platform for building, distributing, and discovering containerized applications.
+  For free Docker Hub users, public repositories are an essential feature that allows you to share your container images with anyone in the world. 
+<br>
  run <br>
  ```docker-compose -f <your-compose-file-name>.yml up```<br>
  in my case I use<br>
