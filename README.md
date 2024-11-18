@@ -86,7 +86,7 @@ My nginx.conf file
 Important Note:
 Azure Web Apps do not allow you to open arbitrary ports for inbound traffic. Any attempt to use other ports (like port 8080, 5000, or others) will not be allowed for security, stability, and maintenance reasons.
 - ## Step 2: Compose your docker images and push them to the DockerHub
-- run ```docker-compose up --build```
+- run ```docker-compose -f <your-compose-file-name>.yml up``` in my case I use ```docker-compose -f docker-compose.yml up```
 - to see all your build images run ```docker images```
 - tag image of your service (in my case it will be client and server)
 ```docker tag <source_image> <dockerhub_login>/<target_image>:tag```
